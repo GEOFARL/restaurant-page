@@ -14,10 +14,15 @@ module.exports = merge(common, {
             {
                 test: /\.s[ac]ss$/,
                 use: [
-                    "style-loader", 
-                    "css-loader", 
-                    "sass-loader"
-                ]
+                    {loader: "style-loader"}, 
+                    {   
+                        loader: "css-loader",
+                        options: {
+                        esModule: false
+                        }
+                    }, 
+                    {loader: "sass-loader"}
+                ],
             },
         ]
     },

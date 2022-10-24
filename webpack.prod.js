@@ -38,10 +38,15 @@ module.exports = merge(common, {
             {
                 test: /\.s[ac]ss$/,
                 use: [
-                    MiniCssExtractPlugin.loader, 
-                    "css-loader", 
-                    "sass-loader"
-                ]
+                    {loader: MiniCssExtractPlugin.loader}, 
+                    {   
+                        loader: "css-loader",
+                        options: {
+                        esModule: false
+                        }
+                    }, 
+                    {loader: "sass-loader"}
+                ],
             },
         ]
     }

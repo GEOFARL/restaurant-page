@@ -7,8 +7,13 @@ module.exports = {
             {
                 test: /\.html$/,
                 use: [
-                    "html-loader"
-                ]
+                    {
+                        loader: "html-loader",
+                        options: {
+                            esModule: false
+                        }
+                    }
+                ],
             },
             {
                 test: /\.(svg|png|jpeg|jpg)$/,
@@ -16,7 +21,8 @@ module.exports = {
                     loader: "file-loader",
                     options: {
                         name: "[name].[hash].[ext]",
-                        outputPath: "imgs"
+                        outputPath: "imgs",
+                        esModule: false,
                     }
                 }
             }
