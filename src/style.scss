@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tangerine:wght@400;700&display=swap');
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+    --header-background-color: rgba(0, 0, 0, 0.909);
+    --main-card-background-color: rgba(0, 0, 0, 0.598);
+    --header-font-color: white;
+    --header-name-font-size: clamp(10vw, 8rem, 20vw);
+    --header-nav-font-size: clamp(2vw, 1.5rem, 4vw);
+    --card-width: 73vw;
+    --card-padding: min(1.5vw, 1rem);
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: url(./imgs/background.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+header {
+    height: min(40vw, 300px);
+    width: 100%;
+    display: flex;
+    color: var(--header-font-color);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--header-background-color);
+    box-shadow: 0 0 1px white;
+    ul {
+        list-style: none;
+        display: flex;
+        align-items: flex-end;
+        gap: 5vw;
+        padding: 0;
+        font-size: var(--header-nav-font-size);
+        [data-active="true"] {
+            border-bottom: 2px solid var(--header-font-color);
+        }
+        li {
+            padding-bottom: clamp(1vw, 1.5rem, 2vw);
+            cursor: pointer;
+            padding-top: 1rem;
+            transition: transform .4s ease-in-out;
+            &:hover {
+                transform: translateY(min(-1.5vw, 1rem));
+            }
+        }
+    }
+    .restaurant-name {
+        height: 60%;
+        display: grid;
+        place-content: center;
+        font-size: var(--header-name-font-size);
+        font-family: 'Tangerine', cursive;
+        font-weight: 900;
+    }
+}
+
+.card[data-active-page="false"] {
+    display: none;
+}
+
+main {
+    min-height: 80vh;
+    .card {
+        padding: var(--card-padding);
+        color: var(--header-font-color);
+        background-color: var(--main-card-background-color);
+        width: var(--card-width);
+        margin: 5vw auto;
+    }
+    .home {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p {
+            padding: min(4vw, 2rem);
+            font-size: var(--header-nav-font-size);
+        }
+        img {
+            width: clamp(100px, 33vw, 400px);
+        }
+    }
+}
+
+footer {
+    background-color: var(--main-card-background-color);
+    display: flex;
+    padding: min(2vw, 1rem);
+    justify-content: center;
+    align-items: center;
+    gap: min(1vw, 0.5rem);
+    color: var(--header-font-color);
+    p {
+        font-size: clamp(1.5vw, 1.2rem, 3vw);
+    }
+    svg {
+        fill: var(--header-font-color);
+        width: min(3vw, 2rem);
+        height: min(3vw, 2rem);
+    }
+}
