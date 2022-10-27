@@ -159,8 +159,7 @@ footer {
     p {
         font-size: clamp(1.5vw, 1.2rem, 3vw);
     }
-    svg {
-        fill: var(--header-font-color);
+    img {
         width: min(3vw, 2rem);
         height: min(3vw, 2rem);
     }
